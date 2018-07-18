@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="vue.js"></script>
+<style>
+body {
+	background-image:url(http://img.zcool.cn/community/03853475704d43f6ac725794887476a.jpg);
+}
+img {
+	background-size: cover;
+}
+select {
+	position: absolute;
+}
+input {
+	width:30%;
+	height:3em;
+	vertical-align: top;
+	border: 1px solid #e4e4e4;
+}
+button {
+	width:8%;
+	line-height:3em;
+	border: 1px solid #3cb371;
+    background-color: #3cb371;
+}
+#search {
+	margin-top:12%;
+}
+.search-logo {
+	margin-bottom: 2%;
+}
+.search-inner {
+	text-align: center;
+}
+form {
+	font-size: 0; /*important*/
+}
+    
+</style>
+</head>
+<body>
+<div id="search">
+	<div class="search-inner">
+		<div class="search-logo">
+				<img src="download.png">
+			<select v-model="selected">
+				<option v-for="option in options" :value="option.value">{{ option.text }}</option>
+			</select>
+		</div>
+		<form v-on:submit.prevent="goSearch">
+			<input v-model="searchName">
+			<button>搜索</button>
+		</form>
+	</div>
+</div>
+<script>
+Vue.component('search-item', {
+	template:''
+});
+new Vue({
+	el: '#search',
+	data: {
+		searchName: '',
+		selected: 'baidu',
+		options: [
+			{ text:'百度', value:'baidu' },
+			{ text:'谷歌', value:'google' },
+		]
+	},
+	methods: {
+		goSearch: function(){
+			if(this.selected === 'baidu')
+				location.href="https://www.baidu.com/s?wd="+this.searchName;
+			if(this.selected === 'google')
+				location.href="https://www.google.com/search?q="+this.searchName;
+		}
+	}
+});
+</script>
+</body>
+</html>

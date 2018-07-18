@@ -1,0 +1,11 @@
+es6/node_modules/
+es6/dist/
+VueBase/node_modules/
+./es6/dist/
+VueDemo-hello/node_modules/
+./es6/dist/
+VueSearch/node_modules/
+./es6/dist/
+WebpackDemo/node_modules/
+./es6/dist/
+.idea/

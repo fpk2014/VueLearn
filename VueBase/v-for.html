@@ -1,0 +1,61 @@
+<html>
+<body>
+<div>
+	<ul id="app">
+		<li v-for="item in items">
+			{{item.message}}
+		</li>
+	</ul>
+	
+	<ul id="app-2">
+		<li v-for="(item,index) in items" :key="item.id">
+			{{parentMessage}} - {{index}} - {{item.message}}
+		</li>
+	</ul>
+	
+	<ul id="app-3">
+		<li v-for="(value, key, index) in items" >
+			{{index}} - {{key}} - {{value}}
+		</li>
+		
+	</ul>
+	
+</div>
+
+<script src="vue.js"></script>
+<script>
+//将数组作为一组元素
+new Vue({
+	el:"#app",
+	data:{
+		items:[
+			{message:'foo'},
+			{message:'Bar'},
+		]
+	}
+});
+new Vue({
+	el:"#app-2",
+	data:{
+		parentMessage: 'Parent',
+		items:[
+			{message:'foo'},
+			{message:'Bar'},
+		]
+	}
+});
+new Vue({
+	el:"#app-3",
+	data:{
+		items:{
+			firstName: 'John',
+			lastName: 'Due',
+			age: 35
+		}
+	}
+});
+
+//将对象作为元素
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<body>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<div id="app">
+	<div v-if="seen">
+		<label>Username</label>
+		<input placeholder="Enter your username">
+	</div>
+	<div v-else>
+		<label>Email</label>
+		<input placeholder="Enter your email">
+	</div>
+	<button v-on:click="toggleLogin">Toggle login Type</button>
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+var vm = new Vue({
+	el: '#app',
+	data: {
+		seen:false,
+		message: 'helloworld'
+	},
+	methods: {
+		toggleLogin:function(){
+			console.log(this.seen);
+			(this.seen===true)?this.seen = false:this.seen = true;
+		}
+	}
+})
+
+</script>
+</html>

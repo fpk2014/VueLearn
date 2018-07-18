@@ -1,0 +1,53 @@
+<html>
+<body>
+<div id="components">
+	<button v-on:click="count++">You clicked me {{ count }} times</button>
+</div>
+
+<div id="components-1">
+	<button-counter></button-counter>
+	<button-counter></button-counter>
+	<button-counter></button-counter>
+</div>
+<div id="components-2">
+	<tab-title></tab-title>
+</div>
+
+<script src="vue.js"></script>
+<script>
+new Vue({
+	el:'#components',
+	data:{
+		count: 0
+	}
+});
+
+Vue.component('button-counter', {
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '\
+	<button v-on:click="count++">\
+	You clicked me {{ count }} times.\
+  </button>'
+});
+new Vue({
+	el: '#components-1',
+});
+
+//局部注册
+CompanentA = {
+	template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>',
+	data: function(){return {count:0}}
+}
+new Vue({
+	el: '#components-2',
+	components: {
+		'tab-title': CompanentA,
+	}
+})
+</script>
+</body>
+</html>

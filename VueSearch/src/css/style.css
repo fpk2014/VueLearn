@@ -1,0 +1,29 @@
+body {
+	background-image:url(http://img.zcool.cn/community/03853475704d43f6ac725794887476a.jpg);
+}
+img {
+	height: 100px;
+	width: 200px;
+	background-image:url(http://www.baidu.com/img/bd_logo1.png);
+	background-size: cover;
+}
+select {
+	position: absolute;
+}
+input {
+	width:30%;
+	height:2em;
+}
+button {
+	width:8%;
+	line-height:2em;
+}
+#search {
+	margin-top:15%;
+}
+.search-logo {
+	margin-bottom: 2%;
+}
+.search-inner {
+	text-align: center;
+}

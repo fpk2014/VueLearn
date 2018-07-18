@@ -1,0 +1,31 @@
+<div id="example-3">
+	<input type="checkbox" v-model="checked">
+	<label>{{ checked }}</label>
+</div>
+
+<div id="example-4">
+  <input type="radio" id="one" value="One" v-model="picked">
+  <label for="one">One</label>
+  <br>
+  <input type="radio" id="two" value="Two" v-model="picked">
+  <label for="two">Two</label>
+  <br>
+  <span>Picked: {{ picked }}</span>
+</div>
+
+
+<script src="vue.js"></script>
+<script>
+new Vue({
+  el: '#example-3',
+  data: {
+    checked: ''
+  }
+});
+new Vue({
+  el: '#example-4',
+  data: {
+    picked: ''
+  }
+});
+</script>

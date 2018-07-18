@@ -1,0 +1,35 @@
+<html>
+<body>
+
+<div id="app">
+<anchored-heading :level="1" :blog-title="blogTitle">Hello</anchored-heading>
+</div>
+</body>
+
+<script src="vue.js"></script>
+<script>
+Vue.component('anchored-heading', {
+	props: {
+		level: {
+		  type: Number,
+		  required: true
+		},
+		blogTitle: {
+			type: String
+		}
+	},
+
+})
+
+new Vue({
+	el: '#app',
+	data: {
+		blogTitle: "Vue"
+	},
+	render: function (createElement) {
+		return createElement('h1', this.blogTitle)
+	}
+	
+})
+</script>
+</html>

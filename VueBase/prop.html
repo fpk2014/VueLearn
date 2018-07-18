@@ -1,0 +1,45 @@
+<html>
+<body>
+<div id="app">
+<!-- 不能使用postTitle -->
+<blog-post post-title="hello" :title="title"   class="username-input"
+  placeholder="Enter your username"></blog-post>
+</div>
+</body>
+<script src="./vue.js"></script>
+<script>
+//向组件传递属性
+Vue.component('blog-post', {
+	inheritAttrs: false,
+	model: {
+		prop: 'checked',
+		event: 'change'
+	},
+	props: {
+		postTitle: String, //传递静态值
+		title: {type: String,required: true}, //传递动态值
+	},
+	template: '<div><h3>{{ postTitle }} {{title}} {{ text }} {{normalizedSize}}</h3>\
+    <div><input  v-bind="$attrs"></div>\
+	</div>',
+	
+	//修改template的值
+	data: function(){
+		return {
+			text: this.postTitle
+		}
+	},
+	computed: {
+		normalizedSize: function () {
+			return this.postTitle.trim().toUpperCase()
+		}
+	}
+});
+new Vue({
+	el: '#app',
+	data: {
+		title: "world", 
+	}
+});
+</script>
+</html>
